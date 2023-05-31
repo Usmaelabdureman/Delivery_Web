@@ -4,6 +4,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  experimental:{
+    appDir:true,
+    serverComponentsExternalPackages: ['bcrypt'],
+  },
 }
-
 module.exports = nextConfig

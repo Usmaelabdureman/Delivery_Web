@@ -1,12 +1,12 @@
 "use client";
-import { register, signin } from "@/pages/api/user";
+
 import { useCallback, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Card from "./Card";
 import Button from "./Button";
 import Input from "./inputForm";
-
+import {register,signin} from "../pages/api/user";
 const registerContent = {
   linkUrl: "/signin",
   linkText: "Already have an account?",
