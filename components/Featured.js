@@ -18,7 +18,7 @@ const Title = styled.h1`
 `;
 const Desc = styled.p`
   color: #71797e;
-  font-size: 0.8rem;
+  font-size: 1.3rem;
 `;
 const ColumnsWrapper = styled.div`
   display: grid;
