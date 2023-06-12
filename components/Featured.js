@@ -1,15 +1,11 @@
 import Center from '@/components/Center';
 import styled from 'styled-components';
 import Button from '@/components/Button';
-import ButtonLink from '@/components/ButtonLink';
 import CartIcon from '@/components/icons/CartIcon';
-import { useContext } from 'react';
-import { CartContext } from '@/components/CartContext';
 import { useRouter } from 'next/router';
 
 const Bg = styled.div`
-  background-color: #222;
-  color: #fff;
+  background-color: #edf2f7;
   padding: 50px 0;
 `;
 const Title = styled.h1`
@@ -21,7 +17,7 @@ const Title = styled.h1`
   }
 `;
 const Desc = styled.p`
-  color: #aaa;
+  color: #71797e;
   font-size: 0.8rem;
 `;
 const ColumnsWrapper = styled.div`
@@ -30,7 +26,7 @@ const ColumnsWrapper = styled.div`
   gap: 40px;
   img {
     max-width: 100%;
-    max-height: 250px;
+    max-height: 350px;
     display: block;
     margin: 0 auto;
   }
@@ -53,49 +49,34 @@ const Column = styled.div`
 `;
 const ButtonsWrapper = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 15px;
   margin-top: 25px;
 `;
 
 export default function Featured({ product }) {
   const router = useRouter();
   const handleClick = () => {
-    router.push('/products'); // Navigates to "/products" page
+    router.push('/products');
   };
-  // const { addProduct } = useContext(CartContext);
-  // function addFeaturedToCart() {
-  //   addProduct(product._id);
-  // }
+
   return (
     <Bg>
       <Center>
         <ColumnsWrapper>
           <Column>
             <div>
-              {/* <Title>{product.title}</Title>
-              <Desc>{product.description}</Desc>
-              <ButtonsWrapper>
-                <ButtonLink
-                  href={'/product/' + product._id}
-                  outline={1}
-                  white={1}
-                >
-                  Read more
-                </ButtonLink>
-                <Button white onClick={addFeaturedToCart}>
-                  <CartIcon />
-                  Add to cart
-                </Button>
-              </ButtonsWrapper> */}
-              <h1>Deliverd To Your Door</h1>
-              <h5>
+              <Title>Deliverd To Your Door</Title>
+              <Desc>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industrys standard dummy text
                 ever since the 1500s, it to make a type specimen book. It has
-                survived not only five centuries
-              </h5>
+                survived not only five centuries Lorem Ipsum has been the
+                industrys standard dummy text ever since the 1500s, it to make a
+                type specimen book. It has survived not only five centuries
+                Lorem
+              </Desc>
               <ButtonsWrapper>
-                <Button white onClick={handleClick}>
+                <Button primary onClick={handleClick}>
                   <CartIcon />
                   Order Now
                 </Button>
@@ -103,10 +84,6 @@ export default function Featured({ product }) {
             </div>
           </Column>
           <Column>
-            {/* <img
-              src="https://dawid-next-ecommerce.s3.amazonaws.com/1679151719649.png"
-              alt=""
-            /> */}
             <img
               src="https://blbstoragefordeliveryapp.blob.core.windows.net/deliveryappimagecontainer/1685273547510.png"
               alt=""

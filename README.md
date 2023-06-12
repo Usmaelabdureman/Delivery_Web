@@ -3,7 +3,11 @@ MONGODB_URI='mongodb+srv://usmael:usmael@deliverydata.ai4hbk3.mongodb.net/delive
 
 ## Getting Started
 
-First, run the development server:
+First, run :
+
+npm install
+
+then the development server:
 
 npm run dev
 
