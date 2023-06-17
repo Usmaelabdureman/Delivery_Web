@@ -85,9 +85,10 @@ export default function Featured({ product }) {
             </div>
           </Column>
           <Column>
-            <img
+            <Image
               src="https://res.cloudinary.com/creavers-deliveryapp/image/upload/v1687040296/boxqzgas8pscvnlz8jrn.jpg"
-              alt="delivery" />
+              alt="delivery"
+              height={200} width={300} />
           </Column>
         </ColumnsWrapper>
       </Center>

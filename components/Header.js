@@ -1,16 +1,16 @@
-import Link from 'next/link';
-import styled from 'styled-components';
-import Center from '@/components/Center';
-import { useContext, useState } from 'react';
-import { CartContext } from '@/components/CartContext';
-import BarsIcon from '@/components/icons/Bars';
-import Search from '../components/Search';
-import { SignInButton, UserButton } from '@clerk/nextjs';
-import { SignedIn, SignedOut } from '@clerk/nextjs/app-beta/client';
-import Button from './Button';
-import cart from '../public/assets/cart.png'
-import logo from '../public/assets/mercedes.png'
-import Image from 'next/image';
+import Link from "next/link";
+import styled from "styled-components";
+import Center from "@/components/Center";
+import { useContext, useState } from "react";
+import { CartContext } from "@/components/CartContext";
+import BarsIcon from "@/components/icons/Bars";
+import Search from "../components/Search";
+import { SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs/app-beta/client";
+import Button from "./Button";
+import cart from "../public/assets/cart.png";
+import logo from "../public/assets/mercedes.png";
+import Image from "next/image";
 const StyledHeader = styled.header`
   background-color: #222;
 `;
@@ -84,44 +84,42 @@ export default function Header() {
     <StyledHeader>
       <Center>
         <Wrapper>
-          <Logo href={'/'}>
-          <Image
-      src={logo}
-      width={30}
-      height={30}
-      alt="Picture of the author"
-    />
-            
+          <Logo href={"/"}>
+            <Image
+              src={logo}
+              width={30}
+              height={30}
+              alt="Picture of the author"
+            />
           </Logo>
           <StyledNav mobileNavActive={mobileNavActive}>
             <Search />
-            <NavLink href={'/'}>Home</NavLink>
-            <NavLink href={'/products'}>All products</NavLink>
-            <NavLink href={'/categories'}>Categories</NavLink>
+            <NavLink href={"/"}>Home</NavLink>
+            <NavLink href={"/products"}>All products</NavLink>
+            <NavLink href={"/categories"}>Categories</NavLink>
             {/* <SignedIn>
               <li className="text-sm font-medium uppercase tracking-wider">
                 <Link href="/dashboard">Dashboard</Link>
               </li>
             </SignedIn> */}
           </StyledNav>
-          <NavLink href={'/cart'}>
-        
-             <Image
-      src={cart}
-      width={30}
-      height={30}
-      alt="Picture of the author"
-    />
-            ({cartProducts.length})
+          <NavLink href={"/cart"}>
+            <Image
+              src={cart}
+              width={30}
+              height={30}
+              alt="Picture of the author"
+            />
+            ({cartProducts?.length})
           </NavLink>
           <SignedIn>
-            <UserButton afterSignOutUrl="/"/>
+            <UserButton afterSignOutUrl="/" />
           </SignedIn>
           <SignedOut>
             <SignInButton mode="modal">
-              <Button  secondary outline>
-            Sign in
-          </Button>
+              <Button secondary outline>
+                Sign in
+              </Button>
             </SignInButton>
           </SignedOut>
           <NavButton onClick={() => setMobileNavActive((prev) => !prev)}>
