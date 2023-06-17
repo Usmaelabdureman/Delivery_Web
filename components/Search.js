@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import Button from './Button';
 
 const SearchContainer = styled.div`
   display: flex;
@@ -9,18 +10,20 @@ const SearchContainer = styled.div`
 `;
 
 const SearchInput = styled.input`
+  height: 9px;
   padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
+  margin-right: 5px;
 `;
 
 const SearchButton = styled.button`
   padding: 8px;
-  margin-left: 8px;
-  background-color: #007bff;
-  color: #fff;
+  margin-left: 15px;
+  // background-color: #007bff;
+  color: #aaa;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
 `;
 
@@ -44,7 +47,10 @@ const Search = () => {
         value={searchTerm}
         onChange={handleSearchChange}
       />
-      <SearchButton onClick={handleSearch}>Search</SearchButton>
+      {/* <SearchButton onClick={handleSearch}>Search</SearchButton> */}
+      <Button block onClick={handleSearch} secondary outline>
+            Search
+          </Button>
     </SearchContainer>
   );
 };

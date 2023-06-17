@@ -5,6 +5,9 @@ import { useContext, useState } from 'react';
 import { CartContext } from '@/components/CartContext';
 import BarsIcon from '@/components/icons/Bars';
 import Search from '../components/Search';
+import { SignInButton, UserButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut } from '@clerk/nextjs/app-beta/client';
+import Button from './Button';
 
 const StyledHeader = styled.header`
   background-color: #222;
@@ -88,11 +91,15 @@ export default function Header() {
             />
           </Logo>
           <StyledNav mobileNavActive={mobileNavActive}>
-          <Search />
+            <Search />
             <NavLink href={'/'}>Home</NavLink>
             <NavLink href={'/products'}>All products</NavLink>
             <NavLink href={'/categories'}>Categories</NavLink>
-            <NavLink href="/signup">Login</NavLink>
+            {/* <SignedIn>
+              <li className="text-sm font-medium uppercase tracking-wider">
+                <Link href="/dashboard">Dashboard</Link>
+              </li>
+            </SignedIn> */}
           </StyledNav>
           <NavLink href={'/cart'}>
             <img
@@ -103,6 +110,16 @@ export default function Header() {
             ></img>
             ({cartProducts.length})
           </NavLink>
+          <SignedIn>
+            <UserButton afterSignOutUrl="/"/>
+          </SignedIn>
+          <SignedOut>
+            <SignInButton mode="modal">
+              <Button  secondary outline>
+            Sign in
+          </Button>
+            </SignInButton>
+          </SignedOut>
           <NavButton onClick={() => setMobileNavActive((prev) => !prev)}>
             <BarsIcon />
           </NavButton>

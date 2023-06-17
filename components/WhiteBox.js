@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const WhiteBox = styled.div`
   background-color: #fff;
@@ -6,4 +6,4 @@ const WhiteBox = styled.div`
   padding: 30px;
 `;
 
-export default WhiteBox;
+export default WhiteBox
