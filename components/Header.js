@@ -8,7 +8,9 @@ import Search from '../components/Search';
 import { SignInButton, UserButton } from '@clerk/nextjs';
 import { SignedIn, SignedOut } from '@clerk/nextjs/app-beta/client';
 import Button from './Button';
-
+import cart from '../public/assets/cart.png'
+import logo from '../public/assets/mercedes.png'
+import Image from 'next/image';
 const StyledHeader = styled.header`
   background-color: #222;
 `;
@@ -83,12 +85,13 @@ export default function Header() {
       <Center>
         <Wrapper>
           <Logo href={'/'}>
-            <img
-              src="https://blbstoragefordeliveryapp.blob.core.windows.net/deliveryappimagecontainer/1685281673643.png"
-              alt="home"
-              width={60}
-              height={60}
-            />
+          <Image
+      src={logo}
+      width={30}
+      height={30}
+      alt="Picture of the author"
+    />
+            
           </Logo>
           <StyledNav mobileNavActive={mobileNavActive}>
             <Search />
@@ -102,12 +105,13 @@ export default function Header() {
             </SignedIn> */}
           </StyledNav>
           <NavLink href={'/cart'}>
-            <img
-              src="https://blbstoragefordeliveryapp.blob.core.windows.net/deliveryappimagecontainer/1685281679232.png"
-              alt=""
-              width={30}
-              height={30}
-            ></img>
+        
+             <Image
+      src={cart}
+      width={30}
+      height={30}
+      alt="Picture of the author"
+    />
             ({cartProducts.length})
           </NavLink>
           <SignedIn>
