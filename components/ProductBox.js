@@ -3,6 +3,7 @@ import Button from '@/components/Button';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { CartContext } from '@/components/CartContext';
+import Image from 'next/image';
 
 const ProductWrapper = styled.div`
   margin-bottom: 30px;
@@ -65,7 +66,7 @@ export default function ProductBox({ _id, title, price, images }) {
     <ProductWrapper>
       <WhiteBox href={url}>
         <div>
-          <img src={images?.[0]} alt=" " />
+          <Image src={images?.[0]} alt=" " width={300} height={200} />
         </div>
       </WhiteBox>
       <ProductInfoBox>
