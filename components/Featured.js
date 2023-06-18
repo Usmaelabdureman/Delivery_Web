@@ -88,7 +88,7 @@ export default function Featured({ product }) {
             <Image
               src="https://res.cloudinary.com/creavers-deliveryapp/image/upload/v1687040296/boxqzgas8pscvnlz8jrn.jpg"
               alt="delivery"
-              height={200} width={300} />
+              height={400} width={500} />
           </Column>
         </ColumnsWrapper>
       </Center>
