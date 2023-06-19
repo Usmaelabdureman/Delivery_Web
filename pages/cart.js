@@ -7,6 +7,8 @@ import { CartContext } from '@/components/CartContext';
 import axios from 'axios';
 import Table from '@/components/Table';
 import Input from '@/components/Input';
+import Image from 'next/image';
+import { useUser } from '@clerk/nextjs';
 
 const ColumnsWrapper = styled.div`
   display: grid;
@@ -66,7 +68,8 @@ const CityHolder = styled.div`
   gap: 5px;
 `;
 
-export default function CartPage() {
+export default  function CartPage() {
+
   const { cartProducts, addProduct, removeProduct, clearCart } =
     useContext(CartContext);
   const [products, setProducts] = useState([]);
@@ -77,6 +80,7 @@ export default function CartPage() {
   const [streetAddress, setStreetAddress] = useState('');
   const [country, setCountry] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
+  const {user} =useUser();
   useEffect(() => {
     if (cartProducts.length > 0) {
       axios.post('/api/cart', { ids: cartProducts }).then((response) => {
@@ -94,7 +98,7 @@ export default function CartPage() {
       setIsSuccess(true);
       clearCart();
     }
-  }, []);
+  }, [clearCart]);
   function moreOfThisProduct(id) {
     addProduct(id);
   }
@@ -102,6 +106,7 @@ export default function CartPage() {
     removeProduct(id);
   }
   async function goToPayment() {
+  if(user){
     const response = await axios.post('/api/checkout', {
       name,
       email,
@@ -115,6 +120,13 @@ export default function CartPage() {
       window.location = response.data.url;
     }
   }
+  else{
+    return(<div>Sign in before proceed to payment </div>)
+  }
+    
+  }
+
+
   let total = 0;
   for (const productId of cartProducts) {
     const price = products.find((p) => p._id === productId)?.price || 0;
@@ -158,7 +170,7 @@ export default function CartPage() {
                     <tr key={product._id}>
                       <ProductInfoCell>
                         <ProductImageBox>
-                          <img src={product.images[0]} alt="" />
+                          <Image src={product.images[0]} alt="" width={150} height={150} />
                         </ProductImageBox>
                         {product.title}
                       </ProductInfoCell>

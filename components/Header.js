@@ -1,13 +1,16 @@
-import Link from 'next/link';
-import styled from 'styled-components';
-import Center from '@/components/Center';
-import { useContext, useState } from 'react';
-import { CartContext } from '@/components/CartContext';
-import BarsIcon from '@/components/icons/Bars';
-import { SignInButton, UserButton } from '@clerk/nextjs';
-import { SignedIn, SignedOut } from '@clerk/nextjs/app-beta/client';
-import Button from './Button';
-
+import Link from "next/link";
+import styled from "styled-components";
+import Center from "@/components/Center";
+import { useContext, useState } from "react";
+import { CartContext } from "@/components/CartContext";
+import BarsIcon from "@/components/icons/Bars";
+import Search from "../components/Search";
+import { SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs/app-beta/client";
+import Button from "./Button";
+import cart from "../public/assets/cart.png";
+import logo from "../public/assets/mercedes.png";
+import Image from "next/image";
 const StyledHeader = styled.header`
   background-color: #222;
 `;
@@ -100,8 +103,9 @@ export default function Header() {
               alt=""
               width={30}
               height={30}
-            ></img>
-            ({cartProducts.length})
+              alt="Picture of the author"
+            />
+            ({cartProducts?.length})
           </NavLink>
           <SignedIn>
             <UserButton afterSignOutUrl="/" />

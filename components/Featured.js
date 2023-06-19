@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from '@/components/Button';
 import CartIcon from '@/components/icons/CartIcon';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const Bg = styled.div`
   background-color: #edf2f7;
@@ -83,10 +84,10 @@ export default function Featured({ product }) {
             </div>
           </Column>
           <Column>
-            <img
-              src="https://res.cloudinary.com/creavers-deliveryapp/image/upload/v1687040282/luutjeq3s74vh1fpcbsf.jpg"
-              alt=""
-            />
+            <Image
+              src="https://res.cloudinary.com/creavers-deliveryapp/image/upload/v1687040296/boxqzgas8pscvnlz8jrn.jpg"
+              alt="delivery"
+              height={400} width={500} />
           </Column>
         </ColumnsWrapper>
       </Center>
