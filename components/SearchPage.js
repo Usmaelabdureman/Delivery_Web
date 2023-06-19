@@ -30,9 +30,20 @@ const SearchPage = () => {
       <h1>Search Results</h1>
       {searchResults.length > 0 ? (
         <ul>
-          {searchResults.map((product) => (
+          {searchResults.filter(function
+          (val){
+            if(term === ''){
+              return val
+            }else if(val.name.toLowerCase().includes(term.toLowerCase())){
+              return val
+            }
+          }).map((product) => (
             <li key={product._id}>{product.title}</li>
-          ))}
+          ))
+          }
+          {/* {searchResults.map((product) => (
+            <li key={product._id}>{product.title}</li>
+          ))} */}
         </ul>
       ) : (
         <p>No results found.</p>

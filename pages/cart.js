@@ -9,7 +9,8 @@ import Table from '@/components/Table';
 import Input from '@/components/Input';
 import Image from 'next/image';
 import { useUser } from '@clerk/nextjs';
-
+import { useRouter } from 'next/navigation';
+import Swal from 'sweetalert2';
 const ColumnsWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -80,7 +81,9 @@ export default  function CartPage() {
   const [streetAddress, setStreetAddress] = useState('');
   const [country, setCountry] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
-  const {user} =useUser();
+  const {isLoaded,isSignedIn} =useUser();
+  const router=useRouter();
+
   useEffect(() => {
     if (cartProducts.length > 0) {
       axios.post('/api/cart', { ids: cartProducts }).then((response) => {
@@ -106,27 +109,31 @@ export default  function CartPage() {
     removeProduct(id);
   }
   async function goToPayment() {
-  if(user){
-    const response = await axios.post('/api/checkout', {
-      name,
-      email,
-      city,
-      postalCode,
-      streetAddress,
-      country,
-      cartProducts,
-    });
-    if (response.data.url) {
-      window.location = response.data.url;
+    if (isLoaded && !isSignedIn) {
+
+      await Swal.fire({
+        icon: 'info',
+        title: 'Not Logged In',
+        text: 'You are not logged in. Please log in to continue to payment.',
+      });
+      router.push('/sign-in');
+    } else {
+      const response = await axios.post('/api/checkout', {
+        name,
+        email,
+        city,
+        postalCode,
+        streetAddress,
+        country,
+        cartProducts,
+      });
+      if (response.data.url) {
+        // Redirect the user to the payment URL
+        window.location = response.data.url;
+      }
     }
   }
-  else{
-    return(<div>Sign in before proceed to payment </div>)
-  }
-    
-  }
-
-
+  
   let total = 0;
   for (const productId of cartProducts) {
     const price = products.find((p) => p._id === productId)?.price || 0;
@@ -220,6 +227,7 @@ export default  function CartPage() {
                 value={email}
                 name="email"
                 onChange={(ev) => setEmail(ev.target.value)}
+                
               />
               <CityHolder>
                 <Input
