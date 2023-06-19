@@ -1,16 +1,15 @@
-import Link from "next/link";
-import styled from "styled-components";
-import Center from "@/components/Center";
-import { useContext, useState } from "react";
-import { CartContext } from "@/components/CartContext";
-import BarsIcon from "@/components/icons/Bars";
-import Search from "../components/Search";
-import { SignInButton, UserButton } from "@clerk/nextjs";
-import { SignedIn, SignedOut } from "@clerk/nextjs/app-beta/client";
-import Button from "./Button";
-import cart from "../public/assets/cart.png";
-import logo from "../public/assets/mercedes.png";
-import Image from "next/image";
+import Link from 'next/link';
+import styled from 'styled-components';
+import Center from '@/components/Center';
+import { useContext, useState } from 'react';
+import { CartContext } from '@/components/CartContext';
+import BarsIcon from '@/components/icons/Bars';
+import { SignInButton, UserButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut } from '@clerk/nextjs/app-beta/client';
+import Button from './Button';
+import cart from '../public/assets/cart.png';
+import logo from '../public/assets/logo.png';
+import Image from 'next/image';
 const StyledHeader = styled.header`
   background-color: #222;
 `;
@@ -85,12 +84,7 @@ export default function Header() {
       <Center>
         <Wrapper>
           <Logo href={'/'}>
-            <img
-              src="https://res.cloudinary.com/creavers-deliveryapp/image/upload/v1687104511/agms2do1zjukcxsomtm8.png"
-              alt="home"
-              width={60}
-              height={60}
-            />
+            <Image src={logo} alt="home" width={60} height={60} />
           </Logo>
           <StyledNav mobileNavActive={mobileNavActive}>
             <NavLink href={'/'}>Home</NavLink>
@@ -98,9 +92,8 @@ export default function Header() {
             <NavLink href={'/categories'}>Categories</NavLink>
           </StyledNav>
           <NavLink href={'/cart'}>
-            <img
-              src="https://res.cloudinary.com/creavers-deliveryapp/image/upload/v1687104323/pubekuqdoabtslm151ib.png"
-              alt=""
+            <Image
+              src={cart}
               width={30}
               height={30}
               alt="Picture of the author"

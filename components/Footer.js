@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebookF,
   faInstagram,
-  faTwitter,
-  faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
 
 export function FooterContainer() {
@@ -15,9 +13,10 @@ export function FooterContainer() {
         <Footer.Row>
           <Footer.Column>
             <Footer.Title>About Us</Footer.Title>
-            <Footer.Link href="#">Story 
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum </Footer.Link>
+            <Footer.Link href="#">
+              Story Lorem Ipsum is simply dummy text of the printing and
+              typesetting industry. Lorem Ipsum{' '}
+            </Footer.Link>
           </Footer.Column>
           <Footer.Column>
             <Footer.Title>Services</Footer.Title>

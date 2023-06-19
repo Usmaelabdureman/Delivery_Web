@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 import Button from '@/components/Button';
 import Link from 'next/link';
-import { useContext } from 'react';
-import { CartContext } from '@/components/CartContext';
 import { useRouter } from 'next/router';
-import { images } from '@/next.config';
 
 const ProductWrapper = styled.div``;
 
@@ -66,11 +63,8 @@ export default function CategoryBox({ _id, name, properties }) {
   return (
     <ProductWrapper>
       <Title href={url}>{name}</Title>
-      <WhiteBox href={url}>
-        <div>{/* <img src={images?.[0]} alt={name} /> */}</div>
-      </WhiteBox>
+      <WhiteBox href={url}></WhiteBox>
       <ProductInfoBox>
-        {/* <Title href={url}>{name}</Title> */}
         <PriceRow>
           <Button block onClick={() => handleClick(_id)} primary outline>
             View All
