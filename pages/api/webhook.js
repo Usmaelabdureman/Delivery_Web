@@ -10,7 +10,7 @@ export default async function handler(req,res) {
   let event;
 
   try {
-    event = stripe.webhooks.constructEvent(await buffer(req), sig, process.STRIPE_WEBHOOK_SECRET);
+    event = stripe.webhooks.constructEvent(await buffer(req), sig, process.env.STRIPE_WEBHOOK_SECRET);
   } catch (err) {
     res.status(400).send(`Webhook Error: ${err.message}`);
     return;
@@ -31,10 +31,8 @@ export default async function handler(req,res) {
     default:
       console.log(`Unhandled event type ${event.type}`);
   }
-
   res.status(200).send('ok');
 }
-
 export const config = {
   api: { bodyParser: false },
 };
