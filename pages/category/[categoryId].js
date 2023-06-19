@@ -5,7 +5,6 @@ import ProductsGrid from '@/components/ProductsGrid';
 import Title from '@/components/Title';
 import { Category } from '@/models/Category';
 import { Product } from '@/models/Product';
-import Link from 'next/link';
 import styled from 'styled-components';
 
 const CategoryWrapper = styled.div`
