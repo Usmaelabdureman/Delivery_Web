@@ -22,7 +22,7 @@ export async function getServerSideProps() {
   const featuredProduct = await Product.findById(featuredProductId);
   const newProducts = await Product.find({}, null, {
     sort: { _id: -1 },
-    limit: 10,
+    limit: 11,
   });
   return {
     props: {

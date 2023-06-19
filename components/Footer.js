@@ -15,21 +15,19 @@ export function FooterContainer() {
         <Footer.Row>
           <Footer.Column>
             <Footer.Title>About Us</Footer.Title>
-            <Footer.Link href="#">Story</Footer.Link>
-            <Footer.Link href="#">Clients</Footer.Link>
-            <Footer.Link href="#">Testimonials</Footer.Link>
+            <Footer.Link href="#">Story 
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum </Footer.Link>
           </Footer.Column>
           <Footer.Column>
             <Footer.Title>Services</Footer.Title>
             <Footer.Link href="#">Selling</Footer.Link>
             <Footer.Link href="#">Deliverying</Footer.Link>
-            <Footer.Link href="#">Production</Footer.Link>
           </Footer.Column>
           <Footer.Column>
             <Footer.Title>Contact Us</Footer.Title>
             <Footer.Link href="#">Ethiopia</Footer.Link>
             <Footer.Link href="#">Addis Ababa</Footer.Link>
-            <Footer.Link href="#">Support</Footer.Link>
           </Footer.Column>
           <Footer.Column>
             <Footer.Title>Social Links</Footer.Title>
@@ -40,14 +38,6 @@ export function FooterContainer() {
             <Footer.Link href="https://www.instagram.com/">
               <FontAwesomeIcon icon={faInstagram} className="fab" />
               _Instagram
-            </Footer.Link>
-            <Footer.Link href="https://www.youtube.com/">
-              <FontAwesomeIcon icon={faYoutube} className="fab" />
-              _Youtube
-            </Footer.Link>
-            <Footer.Link href="https://www.twitter.com/">
-              <FontAwesomeIcon icon={faTwitter} className="fab" />
-              _Twitter
             </Footer.Link>
           </Footer.Column>
         </Footer.Row>

@@ -65,10 +65,9 @@ export default function Featured({ product }) {
         <ColumnsWrapper>
           <Column>
             <div>
-              <Title>Deliverd To Your Door</Title>
+              <Title>  Deliverd To Your Door</Title>
               <Desc>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industrys standard dummy text
+               Order what ever you like  the industrys standard dummy text
                 ever since the 1500s, it to make a type specimen book. It has
                 survived not only five centuries Lorem Ipsum has been the
                 industrys standard dummy text ever since the 1500s, it to make a
@@ -85,7 +84,7 @@ export default function Featured({ product }) {
           </Column>
           <Column>
             <img
-              src="https://blbstoragefordeliveryapp.blob.core.windows.net/deliveryappimagecontainer/1685273547510.png"
+              src="https://res.cloudinary.com/creavers-deliveryapp/image/upload/v1687040282/luutjeq3s74vh1fpcbsf.jpg"
               alt=""
             />
           </Column>

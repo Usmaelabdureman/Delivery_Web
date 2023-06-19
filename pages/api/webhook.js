@@ -1,18 +1,23 @@
-import {mongooseConnect} from "@/lib/mongoose";
+import { mongooseConnect } from '@/lib/mongoose';
 const stripe = require('stripe')(process.env.STRIPE_SK);
-import {buffer} from 'micro';
-import {Order} from "@/models/Order";
+import { buffer } from 'micro';
+import { Order } from '@/models/Order';
 
-const endpointSecret = "whsec_634d3142fd2755bd61adaef74ce0504bd2044848c8aac301ffdb56339a0ca78d";
+const endpointSecret =
+  'whsec_634d3142fd2755bd61adaef74ce0504bd2044848c8aac301ffdb56339a0ca78';
 
-export default async function handler(req,res) {
+export default async function handler(req, res) {
   await mongooseConnect();
   const sig = req.headers['stripe-signature'];
 
   let event;
 
   try {
-    event = stripe.webhooks.constructEvent(await buffer(req), sig, endpointSecret);
+    event = stripe.webhooks.constructEvent(
+      await buffer(req),
+      sig,
+      endpointSecret
+    );
   } catch (err) {
     res.status(400).send(`Webhook Error: ${err.message}`);
     return;
@@ -25,9 +30,9 @@ export default async function handler(req,res) {
       const orderId = data.metadata.orderId;
       const paid = data.payment_status === 'paid';
       if (orderId && paid) {
-        await Order.findByIdAndUpdate(orderId,{
-          paid:true,
-        })
+        await Order.findByIdAndUpdate(orderId, {
+          paid: true,
+        });
       }
       break;
     default:
@@ -38,7 +43,7 @@ export default async function handler(req,res) {
 }
 
 export const config = {
-  api: {bodyParser:false,}
+  api: { bodyParser: false },
 };
 
 // bright-thrift-cajole-lean

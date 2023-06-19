@@ -4,7 +4,6 @@ import Center from '@/components/Center';
 import { useContext, useState } from 'react';
 import { CartContext } from '@/components/CartContext';
 import BarsIcon from '@/components/icons/Bars';
-import Search from '../components/Search';
 import { SignInButton, UserButton } from '@clerk/nextjs';
 import { SignedIn, SignedOut } from '@clerk/nextjs/app-beta/client';
 import Button from './Button';
@@ -84,26 +83,20 @@ export default function Header() {
         <Wrapper>
           <Logo href={'/'}>
             <img
-              src="https://blbstoragefordeliveryapp.blob.core.windows.net/deliveryappimagecontainer/1685281673643.png"
+              src="https://res.cloudinary.com/creavers-deliveryapp/image/upload/v1687104511/agms2do1zjukcxsomtm8.png"
               alt="home"
               width={60}
               height={60}
             />
           </Logo>
           <StyledNav mobileNavActive={mobileNavActive}>
-            <Search />
             <NavLink href={'/'}>Home</NavLink>
             <NavLink href={'/products'}>All products</NavLink>
             <NavLink href={'/categories'}>Categories</NavLink>
-            {/* <SignedIn>
-              <li className="text-sm font-medium uppercase tracking-wider">
-                <Link href="/dashboard">Dashboard</Link>
-              </li>
-            </SignedIn> */}
           </StyledNav>
           <NavLink href={'/cart'}>
             <img
-              src="https://blbstoragefordeliveryapp.blob.core.windows.net/deliveryappimagecontainer/1685281679232.png"
+              src="https://res.cloudinary.com/creavers-deliveryapp/image/upload/v1687104323/pubekuqdoabtslm151ib.png"
               alt=""
               width={30}
               height={30}
@@ -111,13 +104,13 @@ export default function Header() {
             ({cartProducts.length})
           </NavLink>
           <SignedIn>
-            <UserButton afterSignOutUrl="/"/>
+            <UserButton afterSignOutUrl="/" />
           </SignedIn>
           <SignedOut>
             <SignInButton mode="modal">
-              <Button  secondary outline>
-            Sign in
-          </Button>
+              <Button secondary outline>
+                Sign in
+              </Button>
             </SignInButton>
           </SignedOut>
           <NavButton onClick={() => setMobileNavActive((prev) => !prev)}>
