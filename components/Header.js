@@ -5,7 +5,7 @@ import { useContext, useState } from 'react';
 import { CartContext } from '@/components/CartContext';
 import BarsIcon from '@/components/icons/Bars';
 import { SignInButton, UserButton } from '@clerk/nextjs';
-import { SignedIn, SignedOut } from '@clerk/nextjs/app-beta/client';
+import { SignedIn, SignedOut } from '@clerk/nextjs';
 import Button from './Button';
 import cart from '../public/assets/cart.png';
 import logo from '../public/assets/logo.png';
