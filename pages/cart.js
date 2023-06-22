@@ -128,7 +128,7 @@ export default  function CartPage() {
         cartProducts,
       });
       if (response.data.url) {
-        // Redirect the user to the payment URL
+        
         window.location = response.data.url;
       }
     }

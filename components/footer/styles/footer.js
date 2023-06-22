@@ -39,10 +39,12 @@ export const Row = styled.div`
 `;
 
 export const Link = styled.a`
+
   color: #fff;
   margin-bottom: 20px;
   font-size: 18px;
   text-decoration: none;
+  justify-content: space-between;
 
   &:hover {
     color: #ff9c00;
@@ -56,3 +58,18 @@ export const Title = styled.p`
   margin-bottom: 40px;
   font-weight: bold;
 `;
+
+export const EndRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  `
+
+export const H1 = styled.h3`
+  color: #fff;
+  text-align:center;
+  justify-content:center;
+  align-items:center;
+  
+  `

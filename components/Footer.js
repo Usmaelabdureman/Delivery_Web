@@ -5,7 +5,7 @@ import {
   faFacebookF,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
-
+const copyright = '&#169;'
 export function FooterContainer() {
   return (
     <Footer>
@@ -32,15 +32,22 @@ export function FooterContainer() {
             <Footer.Title>Social Links</Footer.Title>
             <Footer.Link href="https://www.facebook.com/">
               <FontAwesomeIcon icon={faFacebookF} className="fab" />
-              _Facebook
+              &nbsp;  Facebook
             </Footer.Link>
-            <Footer.Link href="https://www.instagram.com/">
+            <Footer.Link href="https://www.instagram.com/esmizth/">
               <FontAwesomeIcon icon={faInstagram} className="fab" />
-              _Instagram
+              &nbsp; Instagram
             </Footer.Link>
           </Footer.Column>
         </Footer.Row>
-        @Copyright 2023 Delivery Website
+        <Footer.EndRow>
+          <Footer.Column>
+            <Footer.H1>
+            &copy; Copyright 2023 Delivery Website
+            </Footer.H1>
+          </Footer.Column>
+        </Footer.EndRow>
+   
       </Footer.Wrapper>
     </Footer>
   );
